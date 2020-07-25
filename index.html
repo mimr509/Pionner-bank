@@ -20,7 +20,7 @@
     </div>
   </div>
   <div id="transaction-area"> 
-    
+    <!-- 3 div sector  -->
     <div class="row">
       <div class="col-md-4">
         <div class="deposit  status">
@@ -42,9 +42,10 @@
         </div>
       </div>
     </div>
+    <!-- end 3 div sector -->
 
 
-
+<!-- start deposit and withdraw sector -->
     <div class="row">
       <div class="col-md-6">
         <div class="submit-area">  
@@ -69,6 +70,7 @@
   </div>
   
  <script>
+  //  login button event handler 
   const loginBtn = document.getElementById('login');
   loginBtn.addEventListener("click", function(){
   const loginArea = document.getElementById('login-area');
@@ -78,7 +80,28 @@
   
   })
 
-  //deposit button even handeler
+  //deposit button even Handler
+
+  const depositBtn = document.getElementById('addDeposit')
+  depositBtn.addEventListener("click", function(){
+    const depositAmount = document.getElementById("depositAmount").value;
+    const depositNumber =parseFloat(depositAmount);
+
+    const currentDeposit = document.getElementById("currentDeposit").innerText;
+    const currentDepositNumber = parseFloat(currentDeposit);
+    const totalDeposit = depositNumber+currentDepositNumber;
+    document.getElementById("currentDeposit").innerText = totalDeposit;
+    document.getElementById("depositAmount").value = "";
+
+    const currentBalance = document.getElementById("currentBalance").innerText;
+    const currentBalanceNumber = parseFloat(currentBalance);
+    const totalBalance = currentBalanceNumber + depositNumber;
+    document.getElementById("currentBalance").innerText = totalBalance;
+   
+    
+    
+    
+  })
 
   
  </script>
